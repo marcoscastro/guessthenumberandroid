@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+     Criando um TextView
+     Especifico a largura e altura com o tamanho necessário
+     apenas para a sua exibição: wrap_content
+     Exibição do objeto do tipo string, esse objeto é especificado
+     no diretório values
+     -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mensagem" />
+
+</LinearLayout>
