@@ -2,7 +2,6 @@ package com.mcastrosouza.guessthenumber;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,20 +32,30 @@ public class MainActivity extends Activity {
 
     public void checkNumber(View v) {
 
-        int n = Integer.parseInt(number.getText().toString());
-        boolean congratz = false;
+        try {
+            int n = Integer.parseInt(number.getText().toString());
 
-        if(n < guess_number)
-            tip.setText("Tip: UP");
-        else if(n > guess_number)
-            tip.setText("Tip: DOWN");
-        else
-        {
-            tip.setText("CONGRATULATIONS!!");
-            congratz = true;
+            if(n < guess_number)
+                tip.setText("Tip: UP");
+            else if(n > guess_number)
+                tip.setText("Tip: DOWN");
+            else
+            {
+                tip.setText("CONGRATULATIONS!!");
+            }
+
+            count_attempts++;
+            attempts.setText("Attempts: " + Integer.toString(count_attempts));
+        } catch(Exception e) {
+            tip.setText("What's the number?");
         }
+    }
 
-        count_attempts++;
-        attempts.setText("Attempts: " + Integer.toString(count_attempts));
+    public void resetGame(View v) {
+        number.setText("");
+        attempts.setText("");
+        tip.setText("");
+        guess_number = rand.nextInt((max - min) + 1) + min;
+        count_attempts = 0;
     }
 }
