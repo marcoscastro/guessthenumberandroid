@@ -11,6 +11,10 @@ import java.util.Random;
  * Created by Marcos Castro on 17/12/16.
  */
 
+
+// Uma activity é uma classe gerenciadora de interface com o usuário.
+// Só uma activity pode ser executada por vez.
+// Para cada tela que é exibida para o usuário, precisa de uma activity diferente.
 public class MainActivity extends Activity {
 
     EditText number;
@@ -53,7 +57,7 @@ public class MainActivity extends Activity {
 
     public void resetGame(View v) {
         number.setText("");
-        attempts.setText("");
+        attempts.setText("Attempts: 0");
         tip.setText("");
         guess_number = rand.nextInt((max - min) + 1) + min;
         count_attempts = 0;
